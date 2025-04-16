@@ -2,8 +2,9 @@
 # Pre-req: a file called .pwd that has the password that will be set to the Satellite local administrator account
 # Pre-req: successfully run 01-repos.sh
 # Pre-req: pass in the password to apply via a local .pwd file
+org=MYMAINORG
 satellite-installer --scenario satellite \
---foreman-initial-organization "NE" \
+--foreman-initial-organization "$org" \
 --foreman-initial-location "All Locations" \
 --foreman-initial-admin-username administrator \
 --foreman-initial-admin-password "$(<.pwd)"
