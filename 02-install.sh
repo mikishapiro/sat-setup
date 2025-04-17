@@ -3,12 +3,13 @@
 # Pre-req: successfully run 01-repos.sh
 # Pre-req: pass in the password to apply via a local .pwd file
 org=MYMAINORG
+set +x
 satellite-installer --scenario satellite \
 --foreman-initial-organization "$org" \
 --foreman-initial-location "All Locations" \
 --foreman-initial-admin-username administrator \
 --foreman-initial-admin-password "$(<.pwd)"
-
+set -x
 systemctl enable firewalld
 firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --reload
